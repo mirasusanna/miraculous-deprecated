@@ -130,3 +130,37 @@ add_action('after_setup_theme', function () {
         return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
 });
+
+/**
+ * Add theme support
+ */
+add_action('after_setup_theme', function () {
+
+    // Logo support
+    add_theme_support('custom-logo', [
+        'height' => 150,
+        'width' => 150,
+        'flex-height' => true,
+        'flex-width' => true,
+        'header-text' => ['site-title', 'site-description'],
+    ]);
+
+    // Color palette
+    add_theme_support('editor-color-palette', array(
+        array(
+            'name'  => esc_html__('Black', '@@textdomain'),
+            'slug' => 'black',
+            'color' => '#000',
+        ),
+        array(
+            'name'  => esc_html__('Light grey', '@@textdomain'),
+            'slug' => 'light_grey',
+            'color' => '#f0f0f0',
+        ),
+        array(
+            'name'  => esc_html__('White', '@@textdomain'),
+            'slug' => 'white',
+            'color' => '#fff',
+        ),
+    ));
+});
