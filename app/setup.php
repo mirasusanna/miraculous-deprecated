@@ -149,3 +149,44 @@ add_action('after_setup_theme', function () {
         return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
 });
+
+/**
+ * Add support for custom color palettes in Gutenberg.
+ */
+add_action('after_setup_theme', function () {
+    add_theme_support(
+        'editor-color-palette',
+        array(
+            array(
+                'name'  => esc_html__('Black', '@@textdomain'),
+                'slug' => 'black',
+                'color' => '#000',
+            ),
+            array(
+                'name'  => esc_html__('Light grey', '@@textdomain'),
+                'slug' => 'light_grey',
+                'color' => '#f0f0f0',
+            ),
+            array(
+                'name'  => esc_html__('White', '@@textdomain'),
+                'slug' => 'white',
+                'color' => '#fff'
+            ),
+            array(
+                'name'  => esc_html__('Primary color', '@@textdomain'),
+                'slug' => 'primary_color',
+                'color' => esc_html(get_theme_mod('primary_color', '#00ff00')),
+            ),
+            array(
+                'name'  => esc_html__('Secondary color', '@@textdomain'),
+                'slug' => 'secondary_color',
+                'color' => esc_html(get_theme_mod('secondary_color', '#ff0000')),
+            ),
+            array(
+                'name'  => esc_html__('Accent color', '@@textdomain'),
+                'slug' => 'accent_color',
+                'color' => esc_html(get_theme_mod('accent_color', '#00ffff')),
+            ),
+        )
+    );
+});
