@@ -20,6 +20,13 @@ add_action('wp_enqueue_scripts', function () {
 }, 100);
 
 /**
+ * Gutenberg assets
+ */
+add_action('enqueue_block_editor_assets', function () {
+    wp_enqueue_style('sage/gutenberg.css', asset_path('styles/gutenberg.css'), false, null);
+});
+
+/**
  * Theme setup
  */
 add_action('after_setup_theme', function () {
@@ -58,6 +65,18 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#html5
      */
     add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
+
+    /**
+     * Add theme support for logo
+     * @link https://developer.wordpress.org/reference/functions/add_theme_support/#custom-logo
+     */
+    add_theme_support('custom-logo', [
+        'height' => 150,
+        'width' => 150,
+        'flex-height' => true,
+        'flex-width' => true,
+        'header-text' => ['site-title', 'site-description'],
+    ]);
 
     /**
      * Enable selective refresh for widgets in customizer
@@ -129,38 +148,4 @@ add_action('after_setup_theme', function () {
     sage('blade')->compiler()->directive('asset', function ($asset) {
         return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
-});
-
-/**
- * Add theme support
- */
-add_action('after_setup_theme', function () {
-
-    // Logo support
-    add_theme_support('custom-logo', [
-        'height' => 150,
-        'width' => 150,
-        'flex-height' => true,
-        'flex-width' => true,
-        'header-text' => ['site-title', 'site-description'],
-    ]);
-
-    // Color palette
-    add_theme_support('editor-color-palette', array(
-        array(
-            'name'  => esc_html__('Black', '@@textdomain'),
-            'slug' => 'black',
-            'color' => '#000',
-        ),
-        array(
-            'name'  => esc_html__('Light grey', '@@textdomain'),
-            'slug' => 'light_grey',
-            'color' => '#f0f0f0',
-        ),
-        array(
-            'name'  => esc_html__('White', '@@textdomain'),
-            'slug' => 'white',
-            'color' => '#fff',
-        ),
-    ));
 });
