@@ -35,6 +35,7 @@
 @tailwind components;
 
 /** Import theme styles */
+@import "common/colors";
 @import "common/global";
 @import "components/buttons";
 @import "components/comments";

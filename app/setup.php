@@ -190,3 +190,85 @@ add_action('after_setup_theme', function () {
         )
     );
 });
+
+/**
+ * Generate styles based on theme customizer for Gutenberg
+ */
+function generate_custom_editor_css()
+{
+    // Retrieve the all colors from the Customizer
+    $text_color = get_theme_mod('text_color', '#000');
+    $heading_color = get_theme_mod('heading_color', '#000');
+    $link_color = get_theme_mod('link_color', '#0000ff');
+
+    // Build styles.
+    $css  = '';
+    $css .= '.block-editor-rich-text__editable a { color: ' . esc_attr($link_color) . '; }';
+    $css .= 'p.block-editor-rich-text__editable { color: ' . esc_attr($text_color) . '; }';
+    $css .= 'h1.block-editor-rich-text__editable { color: ' . esc_attr($heading_color) . '; }';
+    $css .= 'h2.block-editor-rich-text__editable { color: ' . esc_attr($heading_color) . '; }';
+    $css .= 'h3.block-editor-rich-text__editable { color: ' . esc_attr($heading_color) . '; }';
+    $css .= 'h4.block-editor-rich-text__editable { color: ' . esc_attr($heading_color) . '; }';
+    $css .= 'h5.block-editor-rich-text__editable { color: ' . esc_attr($heading_color) . '; }';
+    $css .= 'h6.block-editor-rich-text__editable { color: ' . esc_attr($heading_color) . '; }';
+
+    return wp_strip_all_tags($css);
+}
+
+/**
+ * Enqueue theme styles within Gutenberg.
+ */
+add_action('enqueue_block_editor_assets', function () {
+    // Load the theme styles within Gutenberg.
+    wp_enqueue_style('custom_color', get_theme_file_uri('/assets/css/gutenberg.css'), false, '@@pkg.version', 'all');
+
+    // Add custom colors to Gutenberg.
+    wp_add_inline_style('custom_color', generate_custom_editor_css());
+});
+
+/**
+ * Generate styles based on theme customizer for theme
+ */
+function generate_custom_theme_css()
+{
+    // Retrieve the all colors from the Customizer
+    $text_color = get_theme_mod('text_color', '#000');
+    $heading_color = get_theme_mod('heading_color', '#000');
+    $link_color = get_theme_mod('link_color', '#0000ff');
+    $link_color_hover = get_theme_mod('link_color_hover', '#0000ff');
+    $menu_link_color = get_theme_mod('menu_link_color', '#000');
+    $menu_link_hover_color = get_theme_mod('menu_link_hover_color', '#0000ff');
+    $primary_color = get_theme_mod('primary_color', '#00ff00');
+    $secondary_color = get_theme_mod('secondary_color', '#ff0000');
+    $accent_color = get_theme_mod('accent_color', '#00ffff');
+
+    // Custom color settings
+    $css  = '';
+    $css .= 'p { color: ' . esc_attr($text_color) . '; }';
+    $css .= 'h1, h2, h3, h4, h5, h6 { color: ' . esc_attr($heading_color) . '; }';
+    $css .= 'main a { color: ' . esc_attr($link_color) . '; }';
+    $css .= 'main a:hover { color: ' . esc_attr($link_color_hover) . '; border-color: ' . esc_attr($link_color_hover) . '; }';
+    $css .= '#menu-main-menu a { color: ' . esc_attr($menu_link_color) . '; }';
+    $css .= '#menu-main-menu a:hover { color: ' . esc_attr($menu_link_hover_color) . '; }';
+
+    // Editor color settings
+    $css .= '.has-primary-color-color { color: ' . esc_attr($primary_color) . '; }';
+    $css .= '.has-primary-color-background-color { background-color: ' . esc_attr($primary_color) . '; }';
+    $css .= '.has-secondary-color-color { color: ' . esc_attr($secondary_color) . '; }';
+    $css .= '.has-secondary-color-background-color { background-color: ' . esc_attr($secondary_color) . '; }';
+    $css .= '.has-accent-color-color { color: ' . esc_attr($accent_color) . '; }';
+    $css .= '.has-accent-color-background-color { background-color: ' . esc_attr($accent_color) . '; }';
+
+    return wp_strip_all_tags($css);
+}
+
+/**
+ * Enqueue theme styles.
+ */
+add_action('wp_enqueue_scripts', function () {
+    // Load theme styles.
+    wp_enqueue_style('custom_color', get_theme_file_uri('/style.css'), false, '@@pkg.version', 'all');
+
+    // Add custom colors to the front end.
+    wp_add_inline_style('custom_color', generate_custom_theme_css());
+});
