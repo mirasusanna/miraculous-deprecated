@@ -89,7 +89,7 @@ add_action('customize_register', function (\WP_Customize_Manager $wp_customize) 
 
     $wp_customize->add_control(new \WP_Customize_Color_Control($wp_customize, 'menu_link_hover_color', array(
         'section' => 'colors',
-        'label' => esc_html__('Menu Link Color', '@@textdomain'),
+        'label' => esc_html__('Menu Link Hover Color', '@@textdomain'),
         'description' => esc_html__('Color when hovering menu links.', '@@textdomain'),
     )));
 
