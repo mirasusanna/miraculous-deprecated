@@ -1,0 +1,13 @@
+@supports (font-variation-settings: "wdth" 200) {
+  @font-face {
+    font-family: Quicksand;
+    src: url("../fonts/Quicksand/Quicksand-VariableFont_wght.ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  #font-quicksand {
+    font-family: Quicksand, sans-serif;
+    font-variation-settings: "wdth" 400, "wght" 98;
+  }
+}

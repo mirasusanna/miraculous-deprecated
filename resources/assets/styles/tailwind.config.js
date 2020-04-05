@@ -196,6 +196,7 @@ module.exports = {
 
   fonts: {
     'sans': [
+      'Quicksand',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
