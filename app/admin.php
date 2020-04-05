@@ -93,14 +93,27 @@ add_action('customize_register', function (\WP_Customize_Manager $wp_customize) 
         'description' => esc_html__('Color when hovering menu links.', '@@textdomain'),
     )));
 
+    // Footer background color
+    $wp_customize->add_setting('footer_background_color', array(
+        'default' => '#fafafa',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control(new \WP_Customize_Color_Control($wp_customize, 'footer_background_color', array(
+        'section' => 'colors',
+        'label' => esc_html__('Footer background color', '@@textdomain'),
+        'description' => esc_html__('Background color for site footer.', '@@textdomain'),
+    )));
+
     // Primary color
-    $wp_customize->add_setting('primary_color', array(
+    $wp_customize->add_setting('primary', array(
         'default' => '#00ff00',
         'sanitize_callback' => 'sanitize_hex_color',
         'transport' => 'refresh',
     ));
 
-    $wp_customize->add_control(new \WP_Customize_Color_Control($wp_customize, 'primary_color', array(
+    $wp_customize->add_control(new \WP_Customize_Color_Control($wp_customize, 'primary', array(
         'section' => 'colors',
         'label' => esc_html__('Primary Color', '@@textdomain'),
         'description' => esc_html__('Add a color to use within the Gutenberg editor color palette.', '@@textdomain'),

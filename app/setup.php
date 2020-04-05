@@ -51,7 +51,8 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage')
+        'primary_navigation' => __('Primary Navigation', 'sage'),
+        'footer_navigation' => __('Footer Navigation', 'sage')
     ]);
 
     /**
@@ -77,6 +78,8 @@ add_action('after_setup_theme', function () {
         'flex-width' => true,
         'header-text' => ['site-title', 'site-description'],
     ]);
+
+    add_theme_support('align-wide');
 
     /**
      * Enable selective refresh for widgets in customizer
@@ -174,8 +177,8 @@ add_action('after_setup_theme', function () {
             ),
             array(
                 'name'  => esc_html__('Primary color', '@@textdomain'),
-                'slug' => 'primary_color',
-                'color' => esc_html(get_theme_mod('primary_color', '#00ff00')),
+                'slug' => 'primary',
+                'color' => esc_html(get_theme_mod('primary', '#00ff00')),
             ),
             array(
                 'name'  => esc_html__('Secondary color', '@@textdomain'),
@@ -235,10 +238,11 @@ function generate_custom_theme_css()
     $text_color = get_theme_mod('text_color', '#000');
     $heading_color = get_theme_mod('heading_color', '#000');
     $link_color = get_theme_mod('link_color', '#0000ff');
-    $link_color_hover = get_theme_mod('link_color_hover', '#0000ff');
+    $link_hover_color = get_theme_mod('link_hover_color', '#0000ff');
     $menu_link_color = get_theme_mod('menu_link_color', '#000');
     $menu_link_hover_color = get_theme_mod('menu_link_hover_color', '#0000ff');
-    $primary_color = get_theme_mod('primary_color', '#00ff00');
+    $footer_background_color = get_theme_mod('footer_background_color', '#fafafa');
+    $primary = get_theme_mod('primary', '#00ff00');
     $secondary_color = get_theme_mod('secondary_color', '#ff0000');
     $accent_color = get_theme_mod('accent_color', '#00ffff');
 
@@ -247,13 +251,15 @@ function generate_custom_theme_css()
     $css .= 'p { color: ' . esc_attr($text_color) . '; }';
     $css .= 'h1, h2, h3, h4, h5, h6 { color: ' . esc_attr($heading_color) . '; }';
     $css .= 'main a { color: ' . esc_attr($link_color) . '; }';
-    $css .= 'main a:hover { color: ' . esc_attr($link_color_hover) . '; border-color: ' . esc_attr($link_color_hover) . '; }';
+    $css .= 'main a:hover { color: ' . esc_attr($link_hover_color) . '; border-color: ' . esc_attr($link_hover_color) . '; }';
+    $css .= '.site-footer { background-color: ' . esc_attr($footer_background_color) . '; }';
     $css .= '#menu-main-menu a { color: ' . esc_attr($menu_link_color) . '; }';
     $css .= '#menu-main-menu a:hover { color: ' . esc_attr($menu_link_hover_color) . '; }';
 
-    // Editor color settings
-    $css .= '.has-primary-color-color { color: ' . esc_attr($primary_color) . '; }';
-    $css .= '.has-primary-color-background-color { background-color: ' . esc_attr($primary_color) . '; }';
+    // Color classes
+    $css .= '.has-primary-color { color: ' . esc_attr($primary) . '; }';
+    $css .= '.has-primary-border { border-color: ' . esc_attr($primary) . '; }';
+    $css .= '.has-primary-background-color { background-color: ' . esc_attr($primary) . '; }';
     $css .= '.has-secondary-color-color { color: ' . esc_attr($secondary_color) . '; }';
     $css .= '.has-secondary-color-background-color { background-color: ' . esc_attr($secondary_color) . '; }';
     $css .= '.has-accent-color-color { color: ' . esc_attr($accent_color) . '; }';
