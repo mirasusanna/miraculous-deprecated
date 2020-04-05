@@ -1,0 +1,23 @@
+.nav {
+  @apply list-reset;
+
+  .menu-item {
+    a {
+      color: currentColor;
+    }
+  }
+
+  &--primary {
+    @apply flex flex-wrap justify-center;
+
+    .menu-item {
+      @apply inline-block px-4 py-2 border-none uppercase;
+    }
+  }
+
+  &--footer {
+    .menu-item {
+      @apply text-black mb-2;
+    }
+  }
+}

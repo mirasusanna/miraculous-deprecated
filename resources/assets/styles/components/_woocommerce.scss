@@ -1,0 +1,34 @@
+/*
+ * Woocommerce spesific styles
+*/
+.woocommerce {
+  ul.products li.product .price {
+    @apply text-black;
+  }
+}
+
+.wc-block-grid__products {
+  @apply justify-center;
+}
+
+.wp-block-product-best-sellers,
+.wp-block-handpicked-products {
+  @apply breakout;
+}
+
+.wc-block-grid {
+  &__product-title {
+    @apply text-black font-light text-lg;
+  }
+
+  &__product-image {
+    height: 300px;
+  }
+}
+
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.add_to_cart_button {
+  @apply text-black border border-solid border-black rounded-none bg-transparent;
+}

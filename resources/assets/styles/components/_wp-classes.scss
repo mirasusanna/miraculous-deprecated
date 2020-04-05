@@ -77,3 +77,8 @@
   clip: auto;
   white-space: normal;
 }
+
+/* Cover Block */
+.wp-block-cover {
+  @apply breakout;
+}

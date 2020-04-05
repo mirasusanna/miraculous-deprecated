@@ -11,8 +11,9 @@
  */
 @tailwind preflight;
 
-/** Import variables */
+/** Import variables and utilities */
 @import "common/variables";
+@import "common/utilities";
 
 /** Import everything from autoload */
 @import "./autoload/**/*";
@@ -40,6 +41,8 @@
 @import "components/buttons";
 @import "components/comments";
 @import "components/forms";
+@import "components/navigation";
+@import "components/woocommerce";
 @import "components/wp-classes";
 @import "layouts/header";
 @import "layouts/sidebar";

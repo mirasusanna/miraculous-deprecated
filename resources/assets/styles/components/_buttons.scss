@@ -1,5 +1,14 @@
 .btn {
-  @apply bg-primary rounded my-3 px-4 py-3 text-white leading-none;
+  @apply rounded-none my-3 px-4 py-3 leading-none;
 
   transition: 0.2s ease;
+}
+
+.wp-block-button__link,
+.wp-block-file__button {
+  @apply btn;
+
+  &:hover {
+    @apply opacity-75;
+  }
 }

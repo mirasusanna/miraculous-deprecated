@@ -1,1 +1,28 @@
 // Gutenberg editor spesific styles
+
+/* Main column width */
+.wp-block {
+  max-width: 720px;
+}
+
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] {
+  max-width: 1080px;
+}
+
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+  max-width: none;
+}
+
+/* Full width blocks */
+.wp-block[data-type="core/cover"],
+.wp-block[data-type="woocommerce/handpicked-products"],
+.wp-block[data-type="woocommerce/product-best-sellers"] {
+  max-width: none;
+}
+
+.wp-block-button__link,
+.wp-block-file__button {
+  @apply rounded-none;
+}
