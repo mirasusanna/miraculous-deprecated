@@ -6,6 +6,7 @@
     @include('partials.header')
     <div class="wrap container" role="document">
       <div class="content">
+        @include('components.breadcrumbs')
         <main class="main">
           @yield('content')
         </main>

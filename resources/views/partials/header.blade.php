@@ -1,4 +1,4 @@
-<header id="topbar" class="banner fixed z-50 py-4 px-4 w-full flex flex-wrap justify-between items-center">
+<header id="topbar" class="banner fixed top-0 z-50 py-4 px-4 w-full flex flex-wrap justify-between items-center">
   <a class="p-2 h-16" title="{{ get_bloginfo('name', 'display') }}" href="{{ home_url('/') }}">
     @include('components/logo')
   </a>
