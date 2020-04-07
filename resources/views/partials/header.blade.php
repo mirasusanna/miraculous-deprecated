@@ -1,6 +1,6 @@
 <header id="topbar" class="banner fixed z-50 py-4 px-4 w-full flex flex-wrap justify-between items-center">
   <a class="p-2 h-16" title="{{ get_bloginfo('name', 'display') }}" href="{{ home_url('/') }}">
-    @include('atoms/logo')
+    @include('components/logo')
   </a>
   <div class="flex">
     @if (has_nav_menu('primary_navigation'))
