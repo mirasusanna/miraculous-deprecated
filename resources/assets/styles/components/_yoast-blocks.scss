@@ -1,0 +1,61 @@
+/*
+ * Yoast Structured Data Block styles
+*/
+
+// How-to
+.schema-how-to {
+  &-step-name {
+    @apply inline-block text-base mb-2;
+
+    @screen md {
+      @apply text-lg;
+    }
+  }
+
+  li {
+    @apply pl-2;
+  }
+}
+
+// FAQ
+.schema-faq {
+  @apply mb-4;
+
+  @screen md {
+    @apply mb-6;
+  }
+
+  @screen lg {
+    @apply mb-8;
+  }
+
+  // Question title
+  strong {
+    @apply inline-block w-full relative text-lg uppercase py-4 pr-10 border-bottom;
+
+    @screen md {
+      @apply py-6;
+    }
+
+    &:hover,
+    &:focus {
+      @apply cursor-pointer opacity-75;
+    }
+
+    &::after {
+      @apply absolute right-0 pr-4;
+
+      content: "+";
+    }
+
+    &.active {
+      &::after {
+        content: "-";
+      }
+    }
+  }
+
+  &-answer {
+    @apply hidden py-4;
+  }
+}

@@ -1,5 +1,8 @@
 export default {
   init() {
+    /**
+     * Menu related scripts
+     */
     var prevScrollpos = window.pageYOffset;
 
     $(window).scroll(function () {
@@ -22,6 +25,21 @@ export default {
           $topbar.style.top = '-100px';
         }
         prevScrollpos = currentScrollPos;
+      }
+    });
+
+    /**
+     * Accordions
+     */
+    // TODO: make elements focusable and open on enter
+    // Open and close FAQ accordion
+    $('strong.schema-faq-question').click(function () {
+      if (!$(this).hasClass('active')) {
+        $(this).addClass('active');
+        $(this).next().slideToggle();
+      } else {
+        $(this).removeClass('active');
+        $(this).next().slideToggle();
       }
     });
 
