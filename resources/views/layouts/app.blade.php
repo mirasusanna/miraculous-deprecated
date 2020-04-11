@@ -5,9 +5,9 @@
     @php do_action('get_header') @endphp
     @include('partials.header')
     <div class="wrap container" role="document">
-      <div class="content">
+      <div class="content flex">
         @include('components.breadcrumbs')
-        <main class="main">
+        <main class="main w-full">
           @yield('content')
         </main>
         @if (App\display_sidebar())

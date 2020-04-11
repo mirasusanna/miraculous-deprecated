@@ -15,7 +15,7 @@ add_filter('body_class', function (array $classes) {
 
     /** Add class if sidebar is active */
     if (display_sidebar()) {
-        $classes[] = 'sidebar-primary';
+        $classes[] = 'has-sidebar';
     }
 
     /** Clean up class names for custom templates */
@@ -89,3 +89,27 @@ add_filter('comments_template', function ($comments_template) {
 
     return $comments_template;
 }, 100);
+
+/**
+ * Determine when sidebar is shown
+ */
+add_filter('sage/display_sidebar', function ($display) {
+    static $display;
+
+    $get_page_template = basename(get_page_template());
+
+    isset($display) || $display = in_array(true, [
+        // The sidebar will be displayed if any of the following return true
+        is_single(),
+        $get_page_template == 'page-with-sidebar.blade.php'
+    ]);
+
+    return $display;
+});
+
+/**
+ * Change name of default page template
+ */
+add_filter('default_page_template_title', function () {
+    return __('Regular page', '@@textdomain');
+});
