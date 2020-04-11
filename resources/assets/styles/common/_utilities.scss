@@ -1,3 +1,15 @@
+.container {
+  @apply w-full mx-auto my-0 px-4;
+
+  @screen lg {
+    max-width: 992px;
+  }
+
+  @screen xl {
+    max-width: 1200px;
+  }
+}
+
 .breakout {
   width: 100vw;
   position: relative;

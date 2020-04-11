@@ -5,7 +5,7 @@
     @php do_action('get_header') @endphp
     @include('partials.header')
     <div class="wrap container" role="document">
-      <div class="content flex">
+      <div class="content flex flex-wrap">
         @include('components.breadcrumbs')
         <main class="main w-full">
           @yield('content')

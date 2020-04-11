@@ -1,0 +1,16 @@
+.sidebar {
+  .widget {
+    border-bottom: $border;
+  }
+}
+
+.widget_recent_entries,
+.widget_categories {
+  ul {
+    @apply list-reset;
+  }
+
+  li {
+    @apply py-4;
+  }
+}

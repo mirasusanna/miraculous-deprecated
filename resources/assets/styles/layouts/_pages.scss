@@ -1,0 +1,36 @@
+.has-sidebar {
+  @screen md {
+    .main {
+      @screen md {
+        @apply w-3/4 pr-8;
+      }
+
+      @screen lg {
+        @apply w-4/5 pr-10;
+      }
+    }
+
+    .sidebar {
+      @screen md {
+        @apply w-1/4;
+      }
+
+      @screen lg {
+        @apply w-1/5;
+      }
+    }
+  }
+}
+
+// Add margin to pages without hero banner
+.single-post {
+  @apply pt-20;
+
+  @screen md {
+    @apply pt-24;
+  }
+
+  @screen xl {
+    @apply pt-32;
+  }
+}

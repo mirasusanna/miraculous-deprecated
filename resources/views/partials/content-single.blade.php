@@ -2,7 +2,7 @@
   <header>
     <h1 class="entry-title">{!! get_the_title() !!}</h1>
     @if(has_excerpt())
-      <p class="text-2xl mb-4 lg:mb-8">{{ get_the_excerpt() }}</p>
+      <p class="text-lg md:text-xl lg:text-2xl mb-4 lg:mb-8">{{ get_the_excerpt() }}</p>
     @endif
   </header>
   <div class="entry-content">

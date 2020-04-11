@@ -25,6 +25,10 @@
   height: auto;
 }
 
+.alignfull {
+  @apply breakout;
+}
+
 @screen sm {
   .alignleft {
     @apply mr-4;
@@ -80,5 +84,18 @@
 
 /* Cover Block */
 .wp-block-cover {
-  @apply breakout;
+  height: auto;
+}
+
+/* Media and Text Block */
+.wp-block-media-text {
+  @apply mb-6;
+
+  @screen md {
+    @apply mb-10;
+  }
+
+  @screen lg {
+    @apply mb-16;
+  }
 }
