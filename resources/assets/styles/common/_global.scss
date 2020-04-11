@@ -3,11 +3,43 @@ html {
 }
 
 h1 {
-  @apply mt-10 mb-6 text-5xl leading-tight;
+  @apply text-3xl leading-tight mb-6;
+
+  @screen lg {
+    @apply text-4xl;
+  }
+
+  @screen xl {
+    @apply text-5xl;
+  }
 }
 
 h2 {
-  @apply mt-10 mb-6 text-4xl leading-tight;
+  @apply mt-10 mb-6 text-2xl leading-tight;
+
+  @screen md {
+    @apply text-3xl;
+  }
+
+  @screen lg {
+    @apply text-4xl;
+  }
+}
+
+h3 {
+  @apply text-xl;
+
+  @screen md {
+    @apply text-2xl;
+  }
+}
+
+h4 {
+  @apply text-lg;
+
+  @screen md {
+    @apply text-xl;
+  }
 }
 
 h3,
@@ -18,7 +50,11 @@ h6 {
 }
 
 p {
-  @apply mb-3 leading-normal text-lg;
+  @apply mb-3 leading-normal text-base;
+
+  @screen md {
+    @apply text-lg;
+  }
 }
 
 a {
