@@ -113,3 +113,102 @@ add_filter('sage/display_sidebar', function ($display) {
 add_filter('default_page_template_title', function () {
     return __('Regular page', '@@textdomain');
 });
+
+/**
+ * Enable only chosen blocks in Gutenberg
+ */
+add_filter('allowed_block_types', function ($allowed_blocks, $post) {
+    // Blocks allowed by default
+    $allowed_blocks = array(
+        /* Common blocks */
+        'core/paragraph',
+        'core/image',
+        'core/heading',
+        'core/gallery',
+        'core/list',
+        'core/quote',
+        //'core/audio',
+        //'core/cover',
+        'core/file',
+        //'core/video',
+        /* Formatting */
+        //'core/code',
+        //'core/freeform',
+        'core/html',
+        'core/preformatted',
+        //'core/pullquote',
+        //'core/verse',
+        'core/table',
+        /* Layout Elements */
+        'core/button',
+        //'core/text-columns',
+        //'core/media-text',
+        //'core/more',
+        //'core/nextpage',
+        'core/spacer',
+        'core/separator',
+        /* Widgets */
+        'core/shortcode',
+        //'core/archives',
+        //'core/categories',
+        //'core/latest-comments',
+        //'core/latest-posts',
+        //'core/calendar',
+        //'core/rss',
+        //'core/search',
+        //'core/tag-cloud',
+        /* Embeds */
+        'core/embed',
+        'core-embed/twitter',
+        'core-embed/youtube',
+        'core-embed/facebook',
+        'core-embed/instagram',
+        //'core-embed/wordpress',
+        //'core-embed/soundcloud',
+        'core-embed/spotify',
+        'core-embed/flickr',
+        'core-embed/vimeo',
+        //'core-embed/animoto',
+        //'core-embed/cloudup',
+        //'core-embed/collegehumor',
+        //'core-embed/dailymotion',
+        //'core-embed/funnyordie',
+        //'core-embed/hulu',
+        //'core-embed/imgur',
+        'core-embed/issuu',
+        //'core-embed/kickstarter',
+        //'core-embed/meetup-com',
+        //'core-embed/mixcloud',
+        //'core-embed/photobucket',
+        //'core-embed/polldaddy',
+        //'core-embed/reddit',
+        //'core-embed/reverbnation',
+        //'core-embed/screencast',
+        //'core-embed/scribd',
+        'core-embed/slideshare',
+        //'core-embed/smugmug',
+        //'core-embed/speaker',
+        //'core-embed/ted',
+        //'core-embed/tumblr',
+        //'core-embed/videopress',
+        //'core-embed/wordpress-tv',
+    );
+
+    // Additional blocks enabled in Pages
+    if ($post->post_type === 'page') {
+        array_push(
+            $allowed_blocks,
+            /* Common blocks */
+            'core/cover',
+            /* Formatting */
+            'core/pullquote',
+            /* Layout Elements */
+            'core/text-columns',
+            'core/media-text',
+            // Widgets
+            'core/text-columns'
+        );
+    }
+
+    return $allowed_blocks;
+}, 10, 2);
