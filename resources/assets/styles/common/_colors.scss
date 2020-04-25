@@ -1,23 +1,76 @@
+// Color variables
+$color-black: #000;
+$color-light-grey: #fafafa;
+$color-white: #fff;
+
+// Theme customizer colors
+$color-text: var(--color-text);
+$color-heading: var(--color-heading);
+$color-link: var(--color-link);
+$color-link-hover: var(--color-link-hover);
+$color-menu-link: var(--color-menu-link);
+$color-menu-link-hover: var(--color-menu-link-hover);
+$color-footer-background: var(--color-footer-background);
+$color-primary: var(--color-primary);
+$color-secondary: var(--color-secondary);
+$color-accent: var(--color-accent);
+
 .has-black-background-color {
-  background-color: #000;
+  background-color: $color-black;
 }
 
 .has-black-color {
-  background-color: #000;
+  color: $color-black;
 }
 
 .has-light-grey-background-color {
-  background-color: #f0f0f0;
+  background-color: $color-light-grey;
 }
 
 .has-light-grey-color {
-  color: #f0f0f0;
+  color: $color-light-grey;
 }
 
 .has-white-background-color {
-  background-color: #fff;
+  background-color: $color-white;
 }
 
 .has-white-color {
-  color: #fff;
+  color: $color-white;
+}
+
+.has-primary-color {
+  color: $color-primary;
+}
+
+.has-primary-border {
+  border-color: $color-primary;
+}
+
+.has-primary-background-color {
+  background-color: $color-primary;
+}
+
+.has-secondary-color {
+  color: $color-secondary;
+}
+
+.has-secondary-border {
+  border-color: $color-secondary;
+}
+
+.has-secondary-background-color {
+  background-color: $color-secondary;
+}
+
+.has-accent-color {
+  color: $color-accent;
+}
+
+.has-accent-border {
+  border-color: $color-accent;
+}
+
+.has-accent-background-color {
+  background-color: $color-accent;
 }

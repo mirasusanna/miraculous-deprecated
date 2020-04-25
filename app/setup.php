@@ -248,22 +248,16 @@ function generate_custom_theme_css()
 
     // Custom color settings
     $css  = '';
-    $css .= 'p { color: ' . esc_attr($text_color) . '; }';
-    $css .= 'h1, h2, h3, h4, h5, h6 { color: ' . esc_attr($heading_color) . '; }';
-    $css .= 'main a { color: ' . esc_attr($link_color) . '; }';
-    $css .= 'main a:hover { color: ' . esc_attr($link_hover_color) . '; border-color: ' . esc_attr($link_hover_color) . '; }';
-    $css .= '.site-footer { background-color: ' . esc_attr($footer_background_color) . '; }';
-    $css .= '#menu-main-menu a { color: ' . esc_attr($menu_link_color) . '; }';
-    $css .= '#menu-main-menu a:hover { color: ' . esc_attr($menu_link_hover_color) . '; }';
-
-    // Color classes
-    $css .= '.has-primary-color { color: ' . esc_attr($primary) . '; }';
-    $css .= '.has-primary-border { border-color: ' . esc_attr($primary) . '; }';
-    $css .= '.has-primary-background-color { background-color: ' . esc_attr($primary) . '; }';
-    $css .= '.has-secondary-color-color { color: ' . esc_attr($secondary_color) . '; }';
-    $css .= '.has-secondary-color-background-color { background-color: ' . esc_attr($secondary_color) . '; }';
-    $css .= '.has-accent-color-color { color: ' . esc_attr($accent_color) . '; }';
-    $css .= '.has-accent-color-background-color { background-color: ' . esc_attr($accent_color) . '; }';
+    $css .= ':root { --color-text: ' . esc_attr($text_color) . '; }';
+    $css .= ':root { --color-heading: ' . esc_attr($heading_color) . '; }';
+    $css .= ':root { --color-link: ' . esc_attr($link_color) . '; }';
+    $css .= ':root { --color-link-hover: ' . esc_attr($link_hover_color) . '; }';
+    $css .= ':root { --color-footer-background: ' . esc_attr($footer_background_color) . '; }';
+    $css .= ':root { --color-menu-link: ' . esc_attr($menu_link_color) . '; }';
+    $css .= ':root { --color-menu-link-hover: ' . esc_attr($menu_link_hover_color) . '; }';
+    $css .= ':root { --color-primary: ' . esc_attr($primary) . '; }';
+    $css .= ':root { --color-secondary: ' . esc_attr($secondary_color) . '; }';
+    $css .= ':root { --color-accent: ' . esc_attr($accent_color) . '; }';
 
     return wp_strip_all_tags($css);
 }
