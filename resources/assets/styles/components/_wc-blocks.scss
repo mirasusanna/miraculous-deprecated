@@ -1,0 +1,14 @@
+/**
+ * WooCommerce blocks for Gutenberg
+ */
+.wc-block-grid {
+  &__product-title {
+    @apply text-black font-light text-lg;
+
+    &:hover,
+    &:active,
+    &:focus {
+      @apply text-grey;
+    }
+  }
+}
