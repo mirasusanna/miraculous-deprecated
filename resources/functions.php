@@ -38,7 +38,7 @@ if (version_compare('4.7.0', get_bloginfo('version'), '>=')) {
  * Ensure dependencies are loaded
  */
 if (!class_exists('Roots\\Sage\\Container')) {
-    if (!file_exists($composer = __DIR__.'/../vendor/autoload.php')) {
+    if (!file_exists($composer = __DIR__ . '/../vendor/autoload.php')) {
         $sage_error(
             __('You must run <code>composer install</code> from the Sage directory.', 'sage'),
             __('Autoloader not found.', 'sage')
@@ -85,8 +85,27 @@ array_map(
 Container::getInstance()
     ->bindIf('config', function () {
         return new Config([
-            'assets' => require dirname(__DIR__).'/config/assets.php',
-            'theme' => require dirname(__DIR__).'/config/theme.php',
-            'view' => require dirname(__DIR__).'/config/view.php',
+            'assets' => require dirname(__DIR__) . '/config/assets.php',
+            'theme' => require dirname(__DIR__) . '/config/theme.php',
+            'view' => require dirname(__DIR__) . '/config/view.php',
         ]);
     }, true);
+
+/**
+ * Show brand in product listings before title
+ */
+add_action('woocommerce_before_shop_loop_item_title', function () {
+    global $product;
+
+    if (taxonomy_exists('berocket_brand')) {
+        $brands = get_the_terms($product->get_id(), 'berocket_brand');
+
+        if ($brands) {
+            foreach ($brands as $brand) {
+                $brand_name = $brand->name;
+                $brand_url = get_category_link($brand->term_id);
+                echo '<a class="uppercase text-sm mb-2 inline-block" href="' . $brand_url . '">' . $brand_name . '</a>';
+            }
+        }
+    }
+});
