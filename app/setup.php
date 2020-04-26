@@ -279,3 +279,8 @@ add_action('wp_enqueue_scripts', function () {
     // Add custom colors to the front end.
     wp_add_inline_style('custom_color', generate_custom_theme_css());
 });
+
+/**
+ * Disable default WooCommerce styles
+ */
+add_filter('woocommerce_enqueue_styles', '__return_empty_array');
