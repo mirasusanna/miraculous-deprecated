@@ -25,6 +25,22 @@
   height: auto;
 }
 
+.alignwide {
+  @screen md {
+    @apply breakout-wide;
+
+    min-width: $md-container;
+  }
+
+  @screen lg {
+    min-width: $lg-container;
+  }
+
+  @screen xl {
+    min-width: $xl-container;
+  }
+}
+
 .alignfull {
   @apply breakout;
 }
