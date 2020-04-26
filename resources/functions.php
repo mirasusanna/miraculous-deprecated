@@ -104,7 +104,7 @@ add_action('woocommerce_before_shop_loop_item_title', function () {
             foreach ($brands as $brand) {
                 $brand_name = $brand->name;
                 $brand_url = get_category_link($brand->term_id);
-                echo '<a class="uppercase text-sm mb-2 inline-block" href="' . $brand_url . '">' . $brand_name . '</a>';
+                echo '<a class="uppercase text-sm my-2 inline-block" href="' . $brand_url . '">' . $brand_name . '</a>';
             }
         }
     }

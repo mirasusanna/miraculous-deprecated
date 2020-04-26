@@ -18,13 +18,15 @@ global $product;
   @php
     $brands = get_the_terms( $product->get_id(), 'berocket_brand' );
   @endphp
-  @foreach ($brands as $brand)
-    @php
-      $brand_name = $brand->name;
-      $brand_url = get_category_link($brand->term_id);
-    @endphp
-    <a class="uppercase text-xl mb-2 inline-block" href="{{ $brand_url }}">{{ $brand_name }}</a>
-  @endforeach
+  @if ($brands)
+    @foreach ($brands as $brand)
+      @php
+        $brand_name = $brand->name;
+        $brand_url = get_category_link($brand->term_id);
+      @endphp
+      <a class="uppercase text-xl mb-2 inline-block" href="{{ $brand_url }}">{{ $brand_name }}</a>
+    @endforeach
+  @endif
 @endif
 
 @php
