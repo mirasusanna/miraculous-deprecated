@@ -100,7 +100,7 @@ add_filter('sage/display_sidebar', function ($display) {
 
     isset($display) || $display = in_array(true, [
         // The sidebar will be displayed if any of the following return true
-        is_single(),
+        is_singular('post'),
         $get_page_template == 'page-with-sidebar.blade.php'
     ]);
 
@@ -117,10 +117,11 @@ add_filter('default_page_template_title', function () {
 /**
  * Enable only chosen blocks in Gutenberg
  */
+/*
 add_filter('allowed_block_types', function ($allowed_blocks, $post) {
     // Blocks allowed by default
     $allowed_blocks = array(
-        /* Common blocks */
+        // Common blocks
         'core/paragraph',
         'core/image',
         'core/heading',
@@ -131,7 +132,7 @@ add_filter('allowed_block_types', function ($allowed_blocks, $post) {
         //'core/cover',
         'core/file',
         //'core/video',
-        /* Formatting */
+        // Formatting
         //'core/code',
         //'core/freeform',
         'core/html',
@@ -139,7 +140,7 @@ add_filter('allowed_block_types', function ($allowed_blocks, $post) {
         //'core/pullquote',
         //'core/verse',
         'core/table',
-        /* Layout Elements */
+        // Layout Elements
         'core/button',
         //'core/text-columns',
         //'core/media-text',
@@ -147,7 +148,7 @@ add_filter('allowed_block_types', function ($allowed_blocks, $post) {
         //'core/nextpage',
         'core/spacer',
         'core/separator',
-        /* Widgets */
+        // Widgets
         'core/shortcode',
         //'core/archives',
         //'core/categories',
@@ -157,7 +158,7 @@ add_filter('allowed_block_types', function ($allowed_blocks, $post) {
         //'core/rss',
         //'core/search',
         //'core/tag-cloud',
-        /* Embeds */
+        // Embeds
         'core/embed',
         'core-embed/twitter',
         'core-embed/youtube',
@@ -198,17 +199,14 @@ add_filter('allowed_block_types', function ($allowed_blocks, $post) {
     if ($post->post_type === 'page') {
         array_push(
             $allowed_blocks,
-            /* Common blocks */
             'core/cover',
-            /* Formatting */
             'core/pullquote',
-            /* Layout Elements */
             'core/text-columns',
             'core/media-text',
-            // Widgets
             'core/text-columns'
         );
     }
 
     return $allowed_blocks;
 }, 10, 2);
+*/
