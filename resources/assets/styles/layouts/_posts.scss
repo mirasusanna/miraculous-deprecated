@@ -1,0 +1,11 @@
+.single {
+  @apply pt-16;
+
+  @screen md {
+    @apply pt-20;
+  }
+
+  @screen lg {
+    @apply pt-24;
+  }
+}
