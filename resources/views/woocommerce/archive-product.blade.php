@@ -16,7 +16,6 @@ the readme will list any important changes.
 @section('content')
   @php
     do_action('get_header', 'shop');
-    do_action('woocommerce_before_main_content');
   @endphp
 
   @php
@@ -26,18 +25,33 @@ the readme will list any important changes.
       $cat = $wp_query->get_queried_object();
       $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
       $image_url = wp_get_attachment_url( $thumbnail_id );
+
+      if($image_url === false && $cat->parent != 0) {
+        $parent = $cat->parent;
+        $thumbnail_id = $thumbnail_id = get_term_meta( $parent, 'thumbnail_id', true );
+        $image_url = wp_get_attachment_url( $thumbnail_id );
+      }
     }
   @endphp
-  <header class="woocommerce-products-header page-header" style="background-image: url( {{ $image_url }} );">
+
+  <header class="woocommerce-products-header page-header page-header--large has-background breakout" style="background-image: url(' {{ $image_url }} ');">
     <div class="page-header__content">
       @if(apply_filters('woocommerce_show_page_title', true))
         <h1 class="woocommerce-products-header__title page-title">{!! woocommerce_page_title(false) !!}</h1>
       @endif
-      @php
-        do_action('woocommerce_archive_description');
-      @endphp
+      @if(is_product_category())
+        @php do_action('woocommerce_archive_description'); @endphp
+      @endif
     </div>
   </header>
+
+  @php
+    do_action('woocommerce_before_main_content');
+  @endphp
+
+  @if(!is_product_category())
+    @php do_action('woocommerce_archive_description'); @endphp
+  @endif
 
   @if(woocommerce_product_loop())
     @php

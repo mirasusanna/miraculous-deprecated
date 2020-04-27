@@ -3,6 +3,7 @@
     @include('components/logo')
   </a>
   <div class="flex">
+    <button class="inline-block lg:hidden">Menu</button>
     @if (has_nav_menu('primary_navigation'))
       {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav nav--primary', 'container' => 'nav']) !!}
     @endif

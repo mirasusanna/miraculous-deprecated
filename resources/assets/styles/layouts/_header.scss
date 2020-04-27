@@ -2,21 +2,50 @@
   transition: 0.2s ease-in-out;
 }
 
+.logged-in {
+  #topbar {
+    top: 32px !important;
+  }
+}
+
 .page-header {
-  @apply breakout flex bg-cover bg-center;
+  @apply w-full mx-auto my-0 pt-16;
+
+  @screen md {
+    @apply pt-20;
+  }
+
+  @screen lg {
+    @apply pt-24;
+  }
+
+  @screen xl {
+    @apply pt-32;
+  }
+
+  &--large {
+    @apply pb-8;
+
+    @screen lg {
+      @apply pb-16;
+    }
+  }
 
   &.has-background {
-    height: 400px;
+    @apply bg-no-repeat bg-center bg-cover;
 
     @screen md {
-      height: 600px;
+      min-height: 350px;
+    }
+
+    @screen lg {
+      min-height: 400px;
     }
   }
 
   &__content {
-    @apply flex flex-col mx-2;
+    @apply flex flex-col mx-2 px-10;
 
-    margin-top: 10rem;
     max-width: 50rem;
   }
 }

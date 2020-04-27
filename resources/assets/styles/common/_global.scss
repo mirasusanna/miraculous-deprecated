@@ -58,12 +58,15 @@ p {
 }
 
 a {
-  @apply text-primary no-underline border-b border-transparent;
+  @apply text-primary no-underline border-0;
 
+  color: $color-link;
   transition: 0.2s ease;
 
   &:hover {
-    @apply border-primary;
+    @apply border-0;
+
+    color: $color-link-hover;
   }
 }
 

@@ -6,8 +6,7 @@
     @include('partials.header')
     <div class="wrap container" role="document">
       <div class="content flex flex-wrap">
-        @include('components.breadcrumbs')
-        <main class="main w-full">
+        <main class="main w-full px-4 md:px-6 lg:px-8">
           @yield('content')
         </main>
         @if (App\display_sidebar())
