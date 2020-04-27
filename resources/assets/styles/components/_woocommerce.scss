@@ -1,34 +1,138 @@
 /*
  * Woocommerce spesific styles
-*/
+ */
 .woocommerce {
-  ul.products li.product .price {
-    @apply text-black;
+  // WooCommerce buttons
+
+  /*
+  a.button,
+  button.button,
+  a.button.alt,
+  button.button.alt,
+  input.button
+  */
+  .single_add_to_cart_button {
+    @apply btn border border-solid border-black;
+    //@apply text-black border border-solid border-black rounded-none bg-transparent;
+
+    &:hover,
+    &:focus {
+      @apply text-white bg-black;
+    }
+
+    &:visited {
+      @apply text-white;
+    }
+  }
+
+  .woocommerce-cart {
+    table.cart img {
+      width: 8rem;
+    }
+  }
+
+  /*
+   * Product listings (not blocks)
+   */
+  ul.products {
+    @apply flex flex-wrap list-reset justify-center breakout;
+
+    li.product {
+      @apply flex flex-col relative p-2;
+
+      @screen md {
+        &:hover,
+        &:focus {
+          .add_to_cart_button,
+          .woosq-btn {
+            @apply visible bg-white; // TODO: test keyboard
+          }
+        }
+      }
+
+      .woocommerce-loop-product__link {
+        color: $color-black;
+
+        &:hover,
+        &:focus {
+          color: lighten($color: $color-black, $amount: 20%);
+        }
+      }
+
+      .woocommerce-loop-product__title {
+        @apply text-base py-2 m-0;
+
+        color: currentColor;
+        border-top: $border;
+
+        @screen lg {
+          @apply text-lg;
+        }
+      }
+
+      .price {
+        @apply text-black mb-6;
+      }
+
+      // Show add to cart and quick view on hover
+      .add_to_cart_button,
+      .woosq-btn {
+        @apply absolute inline-block m-0 border-0 text-transparent shadow transition rounded-none;
+
+        background: no-repeat center center;
+        background-size: 1.25rem;
+
+        &:hover,
+        &:focus,
+        &:active {
+          @apply bg-black border-0 text-transparent;
+        }
+
+        @screen md-down {
+          @apply bg-white;
+
+          top: 0;
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+
+        @screen md {
+          @apply invisible;
+
+          top: 55%;
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
+
+      .add_to_cart_button {
+        margin-left: 3px;
+        left: 50%;
+        background-image: url("../images/shopping_cart-24px.svg");
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-image: url("../images/shopping_cart-white-24dp.svg");
+        }
+      }
+
+      .woosq-btn {
+        margin-right: 3px;
+        right: 50%;
+        background-image: url("../images/visibility-24px.svg");
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-image: url("../images/visibility-white-24dp.svg");
+        }
+      }
+    }
   }
 }
 
-.wc-block-grid__products {
-  @apply justify-center;
-}
-
-.wp-block-product-best-sellers,
-.wp-block-handpicked-products {
-  @apply breakout;
-}
-
-.wc-block-grid {
-  &__product-title {
-    @apply text-black font-light text-lg;
-  }
-
-  &__product-image {
-    height: 300px;
-  }
-}
-
-.woocommerce a.button,
-.woocommerce button.button,
-.woocommerce input.button,
-.add_to_cart_button {
-  @apply text-black border border-solid border-black rounded-none bg-transparent;
+// Lightbox overlay
+.pswp__bg {
+  background-color: rgba(0, 0, 0, 0.75);
 }
