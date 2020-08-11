@@ -10,6 +10,8 @@ $color-link: var(--color-link);
 $color-link-hover: var(--color-link-hover);
 $color-menu-link: var(--color-menu-link);
 $color-menu-link-hover: var(--color-menu-link-hover);
+$color-submenu-background: var(--color-link-hover); // TODO: double check this
+$color-submenu-link: $color-white; // TODO: double check this
 $color-footer-background: var(--color-footer-background);
 $color-primary: var(--color-primary);
 $color-secondary: var(--color-secondary);

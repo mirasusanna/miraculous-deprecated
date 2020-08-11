@@ -28,6 +28,22 @@ export default {
       }
     });
 
+    // Open menu when focusing element
+    $(function () {
+      $('.menu-item-has-children a').focus(function () {
+        $(this).siblings('.sub-menu').addClass('is-focused');
+      }).blur(function () {
+        $(this).siblings('.sub-menu').removeClass('is-focused');
+      });
+
+      // Sub Menu
+      $('.sub-menu a').focus(function () {
+        $(this).parents('.sub-menu').addClass('is-focused');
+      }).blur(function () {
+        $(this).parents('.sub-menu').removeClass('is-focused');
+      });
+    });
+
     /**
      * Accordions
      */
@@ -43,6 +59,21 @@ export default {
       }
     });
 
+    /**
+     * Add +1
+     */
+    /*
+    $('.quantity input').before('<button id="plusone" class="btn button" type="button">Add +1</button>');
+
+    $('#plusone').click(function () {
+      console.log($('.qty').val());
+      var $value = parseInt($('.qty').val()) + 1;
+      console.log($value);
+      //$('.quantity input').value += 1;
+      //console.log($('.quantity input').value);
+      $('.qty').val($value);
+    })
+    */
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

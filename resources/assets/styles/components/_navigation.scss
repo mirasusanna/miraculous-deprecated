@@ -2,11 +2,19 @@
   @apply list-reset;
 
   .menu-item {
+    @apply relative;
+
     a {
       @apply border-none;
 
-      color: currentColor;
+      color: $color-menu-link;
       border-color: currentColor;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $color-menu-link-hover;
+      }
     }
   }
 
@@ -14,13 +22,59 @@
     @apply flex flex-wrap justify-center;
 
     .menu-item {
-      @apply inline-block py-2 border-none px-4 py-2 border-none;
+      @apply inline-block border-none;
+    }
+
+    a {
+      @apply block py-2 px-4;
     }
   }
 
   &--footer {
     .menu-item {
       @apply text-black mb-2;
+    }
+  }
+}
+
+// TODO: mobile styles
+.menu-main-menu-container {
+  @screen lg-down {
+    @apply hidden fixed;
+
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: white;
+
+    ul {
+      @apply flex flex-col;
+    }
+  }
+
+  @screen lg {
+    @apply flex;
+
+    .menu-item-has-children {
+      &:hover {
+        .sub-menu {
+          @apply block;
+        }
+      }
+    }
+
+    .sub-menu {
+      @apply absolute hidden flex-col p-0;
+
+      background-color: $color-submenu-background;
+      top: 100%;
+
+      &.is-focused {
+        @apply block;
+      }
     }
   }
 }
