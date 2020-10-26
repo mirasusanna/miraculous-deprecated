@@ -116,8 +116,20 @@ add_action('widgets_init', function () {
         'id'            => 'sidebar-primary'
     ] + $config);
     register_sidebar([
-        'name'          => __('Footer', 'sage'),
-        'id'            => 'sidebar-footer'
+        'name'          => __('Footer column 1', 'sage'),
+        'id'            => 'sidebar-footer-1'
+    ] + $config);
+    register_sidebar([
+        'name'          => __('Footer column 2', 'sage'),
+        'id'            => 'sidebar-footer-2'
+    ] + $config);
+    register_sidebar([
+        'name'          => __('Footer column 3', 'sage'),
+        'id'            => 'sidebar-footer-3'
+    ] + $config);
+    register_sidebar([
+        'name'          => __('Footer column 4', 'sage'),
+        'id'            => 'sidebar-footer-4'
     ] + $config);
 });
 
