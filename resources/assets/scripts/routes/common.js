@@ -28,6 +28,45 @@ export default {
       }
     });
 
+    /*
+    const el = document.querySelector('.js-mobile-menu-toggle');
+
+    const parentMenuLinks = $(el).find('> ul > li.menu-item-has-children > a');
+    if (!parentMenuLinks) {
+      return false;
+    } else {
+      Array.from(parentMenuLinks).forEach(setupTapEvent);
+    }
+
+    const setupTapEvent = (el) => {
+      el.addEventListener('click', (e) => {
+        const parent = el.parentNode;
+
+        if (
+          !parent.classList.contains('is-open') &&
+          !parent.classList.contains('current-menu-parent')
+        ) {
+          e.preventDefault();
+          parent.classList.add('is-open');
+          el.setAttribute('aria-expanded', 'true');
+        }
+      });
+    };
+    */
+
+    $('.js-mobile-menu-toggle').click(function () {
+      console.log('js-mobile-menu-toggle clicked');
+      if (!$('#mobile-menu-container').hasClass('is-open')) {
+        $(this).addClass('is-open');
+        $('#mobile-menu-container').addClass('is-open');
+        $('.main').addClass('fixed');
+      } else {
+        $(this).removeClass('is-open');
+        $('#mobile-menu-container').removeClass('is-open');
+        $('.main').removeClass('fixed');
+      }
+    });
+
     // Open menu when focusing element
     $(function () {
       $('.menu-item-has-children a').focus(function () {

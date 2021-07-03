@@ -2,7 +2,7 @@
   @apply list-reset;
 
   .menu-item {
-    @apply relative;
+    @apply list-reset relative;
 
     a {
       @apply border-none;
@@ -19,7 +19,7 @@
   }
 
   &--primary {
-    @apply flex flex-wrap justify-center;
+    @apply flex flex-wrap justify-center mb-0;
 
     .menu-item {
       @apply inline-block border-none;
@@ -37,6 +37,7 @@
   }
 }
 
+/*
 // TODO: mobile styles
 .menu-main-menu-container {
   @screen lg-down {
@@ -76,5 +77,36 @@
         @apply block;
       }
     }
+  }
+}
+*/
+
+.shopping-cart {
+  @apply inline-block w-full h-10 w-10 p-2 relative bg-transparent;
+
+  border-radius: 999px;
+
+  &:hover,
+  &:focus {
+    @apply cursor-pointer bg-grey-light;
+  }
+
+  &__icon {
+    @apply block w-full;
+
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  &__number {
+    @apply absolute block h-4 w-4 text-center bg-black text-white;
+
+    padding: 1px;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    border-radius: 999px;
+    left: -2px;
+    top: -2px;
   }
 }

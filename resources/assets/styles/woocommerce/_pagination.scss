@@ -1,0 +1,23 @@
+.woocommerce-pagination {
+  @apply flex justify-center;
+
+  ul.page-numbers {
+    @apply list-reset flex;
+
+    li {
+      a {
+        @apply inline-block bg-transparent h-8 w-8 p-1 bg-transparent mx-1 text-center;
+
+        border-radius: 999px;
+
+        &:hover {
+          @apply bg-grey-light;
+        }
+      }
+
+      span {
+        @apply inline-block bg-transparent h-8 w-8 p-1 bg-transparent mx-1 text-center;
+      }
+    }
+  }
+}

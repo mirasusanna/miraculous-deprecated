@@ -40,6 +40,8 @@
 @import "components/buttons";
 @import "components/comments";
 @import "components/forms";
+@import "components/main-menu-desktop";
+@import "components/main-menu-mobile";
 @import "components/navigation";
 @import "components/wc-blocks";
 @import "components/widgets";
@@ -53,6 +55,7 @@
 @import "layouts/posts";
 @import "layouts/product";
 @import "layouts/tinymce";
+@import "woocommerce/pagination";
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

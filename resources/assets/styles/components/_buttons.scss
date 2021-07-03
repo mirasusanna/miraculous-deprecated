@@ -4,11 +4,12 @@
   transition: 0.2s ease;
 }
 
+input[type="submit"],
 .wp-block-button__link,
 .wp-block-file__button {
   @apply btn;
 
   &:hover {
-    @apply opacity-75;
+    @apply opacity-75 cursor-pointer;
   }
 }

@@ -1,0 +1,49 @@
+.nav--primary {
+  @screen lg {
+    @apply flex;
+
+    .menu-item-has-children {
+      &:hover {
+        .sub-menu {
+          @apply block;
+        }
+      }
+    }
+
+    .sub-menu {
+      @apply absolute hidden flex-col p-0;
+
+      background-color: $color-submenu-background;
+      top: 100%;
+
+      &.is-focused {
+        @apply block;
+      }
+    }
+  }
+}
+
+.menu-main-menu-container {
+  @screen lg {
+    @apply flex;
+
+    .menu-item-has-children {
+      &:hover {
+        .sub-menu {
+          @apply block;
+        }
+      }
+    }
+
+    .sub-menu {
+      @apply absolute hidden flex-col p-0;
+
+      background-color: $color-submenu-background;
+      top: 100%;
+
+      &.is-focused {
+        @apply block;
+      }
+    }
+  }
+}
