@@ -17,25 +17,57 @@
 
     label[for="username"],
     label[for="password"] {
-      @apply block;
+      @apply block mt-4;
     }
 
     input[type="text"],
     input[type="password"] {
-      @apply w-full;
+      @apply w-full mb-4;
     }
 
     button[type="submit"] {
       @apply block w-full;
-
-      margin: 0 auto;
-
-      @screen md {
-        @apply w-auto;
-      }
-
-      background-color: $color-link;
-      color: #fff;
     }
+
+    .woocommerce-form-login__rememberme {
+      @apply block mb-8;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.woocommerce-lost-password {
+  .lost_reset_password {
+    @apply max-w-sm text-center;
+
+    margin: 0 auto;
+  }
+
+  label[for="user_login"] {
+    @apply block mt-8;
+  }
+
+  input[type="text"] {
+    @apply w-full mb-8;
+  }
+
+  button[type="submit"] {
+    @apply block w-full;
+  }
+}
+
+.woocommerce {
+  button[type="submit"] {
+    margin: 0 auto;
+
+    @screen md {
+      @apply w-auto;
+    }
+
+    background-color: $color-link;
+    color: #fff;
   }
 }
