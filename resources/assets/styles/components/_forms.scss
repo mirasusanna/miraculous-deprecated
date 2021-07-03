@@ -1,8 +1,14 @@
 textarea,
 input[type="text"],
+input[type="tel"],
+input[type="password"],
 input[type="email"],
 input[type="number"] {
   @apply border p-2 mt-1;
+
+  .validate-required & {
+    @apply border-red;
+  }
 }
 
 /** Search form */

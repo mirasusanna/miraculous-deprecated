@@ -1,0 +1,41 @@
+.woocommerce-account {
+  .page-header {
+    @apply text-center;
+  }
+
+  .woocommerce {
+    // Login
+    h2 {
+      @apply text-center;
+    }
+  }
+
+  .woocommerce-form-login {
+    @apply max-w-sm;
+
+    margin: 0 auto;
+
+    label[for="username"],
+    label[for="password"] {
+      @apply block;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      @apply w-full;
+    }
+
+    button[type="submit"] {
+      @apply block w-full;
+
+      margin: 0 auto;
+
+      @screen md {
+        @apply w-auto;
+      }
+
+      background-color: $color-link;
+      color: #fff;
+    }
+  }
+}
