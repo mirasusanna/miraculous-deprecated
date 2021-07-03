@@ -38,7 +38,7 @@
     </div>
   </div>
   <div class="flex lg:hidden shadow top-0 py-1 px-3 w-full flex-no-wrap items-center"> 
-    <a class="p-2 h-16" title="{{ get_bloginfo('name', 'display') }}" href="{{ home_url('/') }}">
+    <a class="p-2 h-16 relative z-20" title="{{ get_bloginfo('name', 'display') }}" href="{{ home_url('/') }}">
       @include('components/logo')
     </a>
     <div class="flex flex-no-wrap items-center ml-auto relative z-20">
